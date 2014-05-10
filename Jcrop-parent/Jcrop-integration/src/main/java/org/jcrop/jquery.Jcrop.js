@@ -289,12 +289,6 @@
         function newTracker() //{{{
         {
             var trk = $('<div></div>').addClass(cssClass('tracker'));
-            if ($.browser.msie) {
-                trk.css({
-                    opacity:0,
-                    backgroundColor:'white'
-                });
-            }
             return trk;
         }
 
@@ -303,9 +297,6 @@
         // }}}
         // Initialization {{{
         // Sanitize some options {{{
-        if ($.browser.msie && ($.browser.version.split('.')[0] === '6')) {
-            ie6mode = true;
-        }
         if (typeof(obj) !== 'object') {
             obj = $(obj)[0];
         }
@@ -1568,12 +1559,6 @@
                 selection:$sel
             }
         };
-
-        if ($.browser.msie) {
-            $div.bind('selectstart', function () {
-                return false;
-            });
-        }
 
         $origimg.data('Jcrop', api);
         return api;
